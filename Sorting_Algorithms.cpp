@@ -52,14 +52,44 @@ void insertionSort(int *a, int n){
     }
 }
 
+// int array[] = {5,3,4,6,7,8,1,9,5,0};
+void quickSort(int *a, int l, int r){
+    if( l > r) return;
+
+    int i = l;
+    int j = r+1;
+    int p = a[l];
+
+    while(i < j){
+        do { i++; } while(a[i] <= p);
+        do { j--; } while(a[j] > p);
+
+        if( i < j ){
+            int t = a[i];
+            a[i] = a[j];
+            a[j] = t;
+        }
+    }
+
+    a[l] = a[j];
+    a[j] = p;
+
+    quickSort(a,l,j-1);
+    quickSort(a,j+1, r);
+
+}
+
+
 
 int main(){
 
-    int array[] = {5,3,4,6,7,8,1,9,5,0};
+    int array[] = {0,3,4,6,7,8,1,9,5,1};
 
     //bubbleSort(array, 10);
     //selectionSort(array,10);
-    insertionSort(array, 10);
+    //insertionSort(array, 10);
+
+    quickSort(array, 0, 9);
 
     for( int i: array ){
         cout<<i<<" ";
