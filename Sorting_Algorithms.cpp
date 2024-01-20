@@ -39,13 +39,27 @@ void selectionSort(int *a, int n){
     }
 }
 
+// int array[] = {5,3,4,6,7,8,1,9,5,0};
+void insertionSort(int *a, int n){
+    for (int i = 1; i < n ; i++) {
+        int j = i;
+        int t = a[i];
+        while(j > 0  && a[j-1] > t ){
+            a[j] = a[j -1];
+            j--;
+        }
+        a[j] = t;
+    }
+}
+
 
 int main(){
 
     int array[] = {5,3,4,6,7,8,1,9,5,0};
 
     //bubbleSort(array, 10);
-    selectionSort(array,10);
+    //selectionSort(array,10);
+    insertionSort(array, 10);
 
     for( int i: array ){
         cout<<i<<" ";
