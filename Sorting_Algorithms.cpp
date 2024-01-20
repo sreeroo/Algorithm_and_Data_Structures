@@ -5,6 +5,7 @@
 #include <iostream>
 using namespace std;
 
+
 // Bubble Sort Implementation
 void bubbleSort(int *a, int n) {
     bool swapped;
@@ -21,11 +22,30 @@ void bubbleSort(int *a, int n) {
     }while(swapped);
 }
 
+// Selection Sort implementation
+// int array[] = {5,3,4,6,7,8,1,9,5,0};
+
+void selectionSort(int *a, int n){
+    for (int i = 0; i < n; i++){
+        int min = i;
+        for(int j = i + 1; j<n; j++){
+            if(a[j] < a[min]){
+                min = j;
+            }
+        }
+        int t = a[min];
+        a[min] = a[i];
+        a[i] = t;
+    }
+}
+
+
 int main(){
 
-    int array[] = {5,3,4,6,7,8,1,9,5};
+    int array[] = {5,3,4,6,7,8,1,9,5,0};
 
-    bubbleSort(array, 9);
+    //bubbleSort(array, 10);
+    selectionSort(array,10);
 
     for( int i: array ){
         cout<<i<<" ";
